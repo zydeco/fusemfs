@@ -8,7 +8,7 @@ CFLAGS = `pkg-config fuse --cflags` -std=c99 -I. -Wno-int-to-pointer-cast -Wno-p
 LDFLAGS = `pkg-config fuse --libs` -L$(LIBMFS_DIR) -L$(LIBRES_DIR) -lmfs -lres
 
 all: fusemfs.c fusemfs.h libmfs-lib libres-lib
-	$(CC) $(CFLAGS) $(LDFLAGS) fusemfs.c -o $(PROD)
+	$(CC) $(CFLAGS) fusemfs.c $(LDFLAGS) -o $(PROD)
 
 libmfs-lib:
 	@make -eC $(LIBMFS_DIR)
